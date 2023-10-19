@@ -22,11 +22,13 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 [class*="contenedor"], 
 main {
   width: min(95%, 120rem);
   margin: 3rem auto;
 }
+
 [class*="heading"] {
   font-size: 4rem;
   text-align: center;
@@ -43,4 +45,37 @@ main {
     color: white;
     background: black;
   }
+}
+
+.layout-container {
+  height: 100vh;
+}
+
+.navegacion {
+  margin-top: 5rem;
+  display: flex;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .navegacion {
+    margin: 0;
+  }
+}
+
+.navegacion a {
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.6rem;
+  padding: .5rem;
+  border-radius: 6px;
+  transition-property: background-color;
+  transition-duration: 300ms;
+}
+
+.navegacion a:hover, 
+.navegacion a.active {
+  background-color: var(--primary);
 }

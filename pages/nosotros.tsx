@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Layout from "../components/layout";
 
 export default function Nosotros() {
@@ -10,7 +9,6 @@ export default function Nosotros() {
       >
         <h1>Nosotros</h1>
 
-        <Link href={'/'}>Inicio</Link>
       </Layout>
     </>
   )
