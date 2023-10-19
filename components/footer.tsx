@@ -10,14 +10,14 @@ export default function Footer() {
             Inicio
           </Link>
 
+					<Link href={'/tienda'}>
+            Tienda
+          </Link>
+
 					<Link href={'/nosotros'}>Nosotros</Link>
 
 					<Link href={'/blog'}>
             Blog
-          </Link>
-
-					<Link href={'/tienda'}>
-            Tienda
           </Link>
 				</nav>
 

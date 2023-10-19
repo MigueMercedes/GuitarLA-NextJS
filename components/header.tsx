@@ -25,6 +25,12 @@ export default function Header() {
             </a>
           </Link>
 
+          <Link href={'/tienda'}>
+            <a className={ router.pathname === '/tienda' ? styles.active : '' }>
+              Tienda
+            </a>
+          </Link>
+
           <Link href={'/nosotros'}>
             <a className={ router.pathname === '/nosotros' ? styles.active : '' }>
               Nosotros
@@ -37,12 +43,6 @@ export default function Header() {
             </a>
           </Link>
 
-          <Link href={'/tienda'}>
-            <a className={ router.pathname === '/tienda' ? styles.active : '' }>
-              Tienda
-            </a>
-          </Link>
-          
         </nav>
       </div>
     </header>
