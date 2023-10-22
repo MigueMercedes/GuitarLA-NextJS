@@ -4,11 +4,17 @@
 }
 .contenido {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 375px;
 }
+
 .contenido h3 {
     font-weight: 900;
     font-size: 2.8rem;
     margin: 0;
+    min-height: 84.03px;
 }
 .fecha {
     font-size: 1.6rem;

@@ -5,12 +5,12 @@ import styles from '../styles/guitarras.module.css'
 
 export default function Guitarra({guitarra}: {guitarra: DatumAttributes}) {
   
-  const { nombre, precio, descripcion, url } = guitarra;
-  const imagen = guitarra.imagen.data.attributes.formats.medium.url;
+  const { nombre, precio, descripcion, url, imagen } = guitarra;
+  const imagenURL = imagen.data.attributes.formats.medium.url;
 
   return (
     <div className={styles.guitarra}>
-      <Image src={imagen} alt={`Imagen de guitarra${nombre}`} width={600} height={400}/>
+      <Image src={imagenURL} alt={`Imagen de guitarra${nombre}`} width={600} height={400}/>
 
       <div className={styles.contenido}>
         <h3>{nombre}</h3>

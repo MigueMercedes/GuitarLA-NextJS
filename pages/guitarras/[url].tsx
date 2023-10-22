@@ -1,7 +1,8 @@
 import Image from 'next/future/image';
-import { DatumAttributes, Guitarras } from '../../interfaces/guitarras.interface';
-import styles from '../../styles/guitarras.module.css'
 import Layout from '../../components/layout';
+import { DatumAttributes, Guitarras } from '../../interfaces/guitarras.interface';
+import styles from '../../styles/guitarras.module.css';
+
 export interface PathsI {
   params: {
     url: string;
@@ -40,21 +41,21 @@ export async function getStaticProps({ params: {url} }: PathsI) {
 
 export default function GuitarraUrl({guitarra}: {guitarra: DatumAttributes}) {
 
-  const { nombre, descripcion, precio, createdAt } = guitarra;
-  const { url: imagen } = guitarra.imagen.data.attributes
+  const { nombre, descripcion, precio } = guitarra;
+  const { url: imagenUrl } = guitarra.imagen.data.attributes
   return (
     <Layout
       title={`Guitarra ${nombre}`}
     >
-      <div className={styles.guitarra}>
-        <Image src={imagen} alt={`Imagen de guitarra${nombre}`} width={600} height={400} />
+      <article className={styles.guitarra}>
+        <Image src={imagenUrl} alt={`Imagen de guitarra${nombre}`} width={600} height={400} />
 
         <div className={styles.contenido}>
           <h3>{nombre}</h3>
           <p className={styles.descripcion}>{descripcion}</p>
           <p className={styles.precio}>${precio}</p>
         </div>
-      </div>
+      </article>
     </Layout>
   )
 }
