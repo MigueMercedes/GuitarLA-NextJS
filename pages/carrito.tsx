@@ -11,7 +11,7 @@ interface PropsI {
   eliminarProducto: (id: number) => void;
 }
 
-export default function Carrito({carrito, actualizarCantidad}: PropsI) {
+export default function Carrito({carrito, actualizarCantidad, eliminarProducto}: PropsI) {
 
   const [total, setTotal] = useState(0)
 
@@ -73,6 +73,15 @@ export default function Carrito({carrito, actualizarCantidad}: PropsI) {
                         <span>{producto.cantidad * producto.precio}</span>
                       </p>
                     </div>
+
+                    <button
+                      className={styles.eliminar}
+                      type="button"
+                      onClick={() => eliminarProducto(producto.id)}
+                    >
+                      X
+                    </button>
+
                   </div>
                 ))}
           </div>

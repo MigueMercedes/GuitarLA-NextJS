@@ -48,6 +48,13 @@ main {
   }
 }
 
+.centered {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
 .layout-container {
   min-height: 100vh;
 }

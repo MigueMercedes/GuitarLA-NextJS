@@ -1,11 +1,25 @@
 import { AppProps } from 'next/app'
+import { useEffect, useState } from 'react'
+import { GuitarraI } from '../interfaces/guitarra.interface';
 import '../styles/globals.css'
-import { useState } from 'react'
-import { GuitarraI } from '../interfaces/guitarra.interface'
+import Image from 'next/future/image';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const [carrito, setCarrito] = useState<GuitarraI[]>([])
+  const carritoLSString = typeof window !== 'undefined' ? localStorage.getItem('carrito') : undefined;
+  const carritoLS:GuitarraI[] = carritoLSString ? JSON.parse(carritoLSString) : [];
+  const [carrito, setCarrito] = useState<GuitarraI[]>(carritoLS ?? []);
+  const [paginaLista, setPaginaLista] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }, [carrito]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPaginaLista(true)
+    }, 1000);
+  }, []);
 
   const agregarCarrito = (guitarra: GuitarraI) => {
     // Comprobar si la guitarra ya está en el carrito...
@@ -45,7 +59,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
 
-  return (
+  return paginaLista ? (
     <Component
       {...pageProps}
       carrito={carrito}
@@ -53,6 +67,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       actualizarCantidad={actualizarCantidad}
       eliminarProducto={eliminarProducto}
     />
+  ): (
+    <div className='centered'>
+      <h1 style={{marginBottom: 35}}>Loading</h1>
+      <Image src={'/img/spinner.svg'} alt={'Cargando...'} width={100} height={100} />
+    </div>
   )
 }
 
