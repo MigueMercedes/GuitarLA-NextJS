@@ -54,23 +54,23 @@ export default function GuitarraUrl({guitarra, agregarCarrito, actualizarCantida
   const { url: imagenUrl } = guitarra[0]?.attributes?.imagen?.data?.attributes
 
   const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      if(cantidad < 1) {
-        alert('Cantidad no válida!');
-        return;
-      }
+    if(cantidad < 1) {
+      alert('Cantidad no válida!');
+      return;
+    }
 
-      // Construir un objecto
-      const guitarraSeleccionada: GuitarraI= {
-        id: guitarra[0].id,
-        imagen: imagenUrl,
-        nombre,
-        precio,
-        cantidad
-      }
+    // Construir un objecto
+    const guitarraSeleccionada: GuitarraI= {
+      id: guitarra[0].id,
+      imagen: imagenUrl,
+      nombre,
+      precio,
+      cantidad
+    }
 
-      agregarCarrito(guitarraSeleccionada)
+    agregarCarrito(guitarraSeleccionada)
   }
 
   return (
